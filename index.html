@@ -4,9 +4,41 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
     <title>Test App</title>
     <script src="phonegap.js"></script>
-	<script src="assets/js/zepto.js"></script>
+    <script src="assets/js/zepto.js"></script>
   </head>
   <body>
-  Hello world
+  <script>
+    // Wait for Cordova to connect with the device
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready to be used!
+    function onDeviceReady() {
+      $('#cpButton').disabled = false;
+    }
+
+    function onPhotoCaptureSuccess(imageURI) {
+      console.log(imageURI);
+
+      // create the image 'thumbnail'
+      $('#images').append('<img style="width:50px;height:50px" src="' +
+                          imageURI + '" />');
+    }
+
+    function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+
+    function capturePhoto() {
+      // Take picture using device camera and retrieve image file location
+      navigator.camera.getPicture(onPhotoCaptureSuccess, onFail,
+                                  { quality: 50,
+                                    destinationType: destinationType.FILE_URI });
+
+    }
+  </script>
+  Test basic image capture
+  <button id="cpButton" onclick="capturePhoto();" disabled>Capture Photo</button>
+  <div id="images">
+  </div>
   </body>
 </html>
