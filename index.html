@@ -8,6 +8,8 @@
   </head>
   <body>
   <script>
+    var destinationType; // sets the format of returned value
+
     // Wait for Cordova to connect with the device
     document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -15,6 +17,7 @@
     function onDeviceReady() {
       //$('#cpButton').disabled = false;
       console.log("device ready");
+      destinationType = navigator.camera.DestinationType;
     }
 
     function onPhotoCaptureSuccess(imageURI) {
