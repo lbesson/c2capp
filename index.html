@@ -13,7 +13,8 @@
 
     // Cordova is ready to be used!
     function onDeviceReady() {
-      $('#cpButton').disabled = false;
+      //$('#cpButton').disabled = false;
+      console.log("device ready");
     }
 
     function onPhotoCaptureSuccess(imageURI) {
@@ -37,7 +38,7 @@
     }
   </script>
   Test basic image capture
-  <button id="cpButton" onclick="capturePhoto();" disabled>Capture Photo</button>
+  <button id="cpButton" onclick="capturePhoto();">Capture Photo</button>
   <div id="images">
   </div>
   </body>
