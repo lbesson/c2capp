@@ -9,6 +9,7 @@
   <body>
   <script>
     var destinationType; // sets the format of returned value
+    var pictureSource;
 
     // Wait for Cordova to connect with the device
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -18,9 +19,10 @@
       //$('#cpButton').disabled = false;
       console.log("device ready");
       destinationType = navigator.camera.DestinationType;
+      pictureSource = navigator.camera.PictureSourceType;
     }
 
-    function onPhotoCaptureSuccess(imageURI) {
+    function onPhotoURISuccess(imageURI) {
       console.log(imageURI);
 
       // create the image 'thumbnail'
@@ -28,20 +30,32 @@
                           imageURI + '" />');
     }
 
+    function onPhotoDataSuccess(imageData) {
+      $('#images').append('<img style="width:50px;height:50px" src="data:image/jpeg;base64,' +
+                          imageData + '" />');
+    }
+
     function onFail(message) {
       alert('Failed because: ' + message);
     }
 
     function capturePhoto() {
+      var destType = ($('#use_datauri').attr('checked')) ? destinationType.DATA_URL : destinationType.FILE_URI;
+      var cllBack = ($('#use_datauri').attr('checked')) ? onPhotoDataSuccess : onPhotoURISuccess;
+      var srcType = ($('#new_picture').attr('checked')) ? pictureSource.CAMERA : pictureSource.PHOTLIBRARY;
+
+
       // Take picture using device camera and retrieve image file location
       navigator.camera.getPicture(onPhotoCaptureSuccess, onFail,
                                   { quality: 50,
-                                    destinationType: destinationType.FILE_URI });
-
+                                    sourceType: srcType,
+                                    destinationType: destType });
     }
   </script>
-  Test basic image capture
-  <button id="cpButton" onclick="capturePhoto();">Capture Photo</button>
+  Test image capture
+  <button id="cpButton" onclick="capturePhoto();">Capture Photo</button><br />
+  <input id="use_datauri" value="use_datauri" type="checkbox" /><label for="use_datauri">As data uri</label><br />
+  <input id="new_picture" value="new_picture" type="checkbox" /><label for="new_picture">New picture</label><br />
   <div id="images">
   </div>
   </body>
