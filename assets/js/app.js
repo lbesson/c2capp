@@ -2,14 +2,6 @@
 
   window.c2corg = window.c2corg || {};
 
-  // a few cordova objects we cannot reference directly
-  window.c2corg.cordova = {
-    camera: {
-      pictureSource: null,
-      destinationType: null
-    }
-  };
-
   window.c2corg.camera = {
 
     max_thumb_size: 100,
@@ -82,8 +74,8 @@
         // Take picture using device camera and retrieve image file location
         navigator.camera.getPicture(this.onCaptureSuccess, this.onCaptureFail,
           { quality: 80,
-            sourceType: c2corg.cordova.camera.destinationType.FILE_URI,
-            destinationType: c2corg.cordova.camera.pictureSource.CAMERA });
+            sourceType: navigator.camera.destinationType.FILE_URI,
+            destinationType: navigator.camera.PictureSourceType.CAMERA });
       } else {
         this.onCaptureSuccess('assets/img/mouchillon.jpg');
       }
@@ -100,6 +92,4 @@ function onDeviceReady() {
   //$('#cpButton').attr('disabled', false);
   console.log("device ready");
 
-  window.c2corg.cordova.camera.pictureSource = navigator.camera.pictureSource;
-  window.c2corg.cordova.camera.destinationType = navigator.camera.destinationType;
 }
