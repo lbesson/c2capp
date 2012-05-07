@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-	    id        = "org.camptocamp.app.outing"
-	    version   = "1.0.0">
+	      id        = "org.camptocamp.app.outing"
+	      version   = "1.0.0">
 
   <name>C2C: find a good name</name>
 
@@ -14,12 +14,11 @@
     Camptocamp Association
   </author>
 
-  <icon src="icon.png" gap:role="default" />
+  <icon src="assets/img/icon.png" gap:role="default" />
 
   <feature name="http://api.phonegap.com/1.0/geolocation" />
   <feature name="http://api.phonegap.com/1.0/network" />
   <feature name="http://api.phonegap.com/1.0/file" />
 
   <preference name="orientation" value="portrait" />
-  <preference name="android-minSdkVersion" value="7" />
 </widget>
