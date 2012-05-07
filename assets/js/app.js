@@ -97,7 +97,7 @@
 
 // Cordova is ready to be used
 function onDeviceReady() {
-  $('#cpButton').attr('disabled', false);
+  //$('#cpButton').attr('disabled', false);
   console.log("device ready");
 
   window.c2corg.cordova.camera.pictureSource = navigator.camera.pictureSource;
