@@ -2,11 +2,13 @@
 
   window.c2corg = window.c2corg || {};
 
-  // Cordova is ready to be used
-  function onDeviceReady() {
-    $('#cpButton').attr('disabled', false);
-    console.log("device ready");
-  }
+  // a few cordova objects we cannot reference directly
+  window.c2corg.cordova = {
+    camera: {
+      pictureSource: null,
+      destinationType: null
+    }
+  };
 
   window.c2corg.camera = {
 
@@ -79,9 +81,9 @@
       if (!!navigator.camera) {
         // Take picture using device camera and retrieve image file location
         navigator.camera.getPicture(this.onCaptureSuccess, this.onCaptureFail,
-          { quality: 25,
-            sourceType: navigator.camera.destinationType.FILE_URI,
-            destinationType: navigator.camera.pictureSource.CAMERA });
+          { quality: 80,
+            sourceType: c2corg.cordova.camera.destinationType.FILE_URI,
+            destinationType: c2corg.cordova.camera.pictureSource.CAMERA });
       } else {
         this.onCaptureSuccess('assets/img/mouchillon.jpg');
       }
@@ -89,21 +91,15 @@
   };
 
   // Wait for Cordova to connect with the device
-  document.addEventListener("deviceready", c2corg.onDeviceReady, false);
+  document.addEventListener("deviceready", onDeviceReady, false);
 
 })();
 
+// Cordova is ready to be used
+function onDeviceReady() {
+  $('#cpButton').attr('disabled', false);
+  console.log("device ready");
 
-
-function onPhotoURISuccess(imageURI) {
-  console.log(imageURI);
-
-  // create the image 'thumbnail'
-
-  // display thumbnail
-  $('#images').append('<img style="width:50px;height:50px" src="' +
-    imageURI + '" />');
+  window.c2corg.cordova.camera.pictureSource = navigator.camera.pictureSource;
+  window.c2corg.cordova.camera.destinationType = navigator.camera.destinationType;
 }
-
-
-
