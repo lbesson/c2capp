@@ -74,7 +74,7 @@
         // Take picture using device camera and retrieve image file location
         navigator.camera.getPicture(this.onCaptureSuccess, this.onCaptureFail,
           { quality: 80,
-            sourceType: navigator.camera.destinationType.FILE_URI,
+            sourceType: navigator.camera.DestinationType.FILE_URI,
             destinationType: navigator.camera.PictureSourceType.CAMERA });
       } else {
         this.onCaptureSuccess('assets/img/mouchillon.jpg');
@@ -91,5 +91,4 @@
 function onDeviceReady() {
   //$('#cpButton').attr('disabled', false);
   console.log("device ready");
-
 }
