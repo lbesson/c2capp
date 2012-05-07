@@ -58,14 +58,23 @@
     },
 
     onCaptureSuccess: function(file) {
-      c2corg.camera.createThumbnail(file, function(res) { // we cannot use this.createThumbnail due to the way cordova js works
-        if (res.success) {
-          // display thumbnail
-          $('#images').append('<img src="' + res.datauri + '" />');
-        } else {
-          c2corg.camera.onCaptureFail('could not resize image');
-        }
-      });
+      if ($('#trythumb').attr('checked')) {
+        c2corg.camera.createThumbnail(file, function(res) { // we cannot use this.createThumbnail due to the way cordova js works
+          if (res.success) {
+            // display thumbnail
+            $('#images').append('<img src="' + res.datauri + '" />');
+          } else {
+            c2corg.camera.onCaptureFail('could not resize image');
+          }
+        });
+      } else {
+        // Compute thumbnail size
+/*        var scale = c2corg.camera.max_thumb_size / Math.max(img.width, img.height);
+        var width = Math.round(img.width * scale);
+        var height = Math.round(img.height * scale);*/
+        $('#images').append('<img src="' + file + '" style="width:' + 100 +
+          'px;height:' + 100 + 'px;" />');
+      }
     },
 
     capturePhoto: function() {
