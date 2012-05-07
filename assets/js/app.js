@@ -58,12 +58,12 @@
     },
 
     onCaptureSuccess: function(file) {
-      this.createThumbnail(file, function(res) {
+      c2corg.camera.createThumbnail(file, function(res) { // we cannot use this.createThumbnail due to the way cordova js works
         if (res.success) {
           // display thumbnail
           $('#images').append('<img src="' + res.datauri + '" />');
         } else {
-          this.onCaptureFail('could not resize image');
+          c2corg.camera.onCaptureFail('could not resize image');
         }
       });
     },
