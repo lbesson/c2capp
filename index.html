@@ -1,17 +1,22 @@
 <!doctype html>
-<html>
+<html data-ng-app="c2capp">
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
-    <title>Test App</title>
+    <title>Angular test app</title>
     <script src="phonegap.js"></script>
     <script src="assets/js/zepto-1.0rc1.js"></script>
-    <script src="assets/js/phonegap-test.js"></script>
+    <script src="assets/js/angular-1.0.1.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/controllers.js"></script>
   </head>
   <body>
-  Test image capture
+    <footer>Hello {{'World'}}!</footer>
+    <div data-ng-view></div>
+<!-- 
+      Test image capture
   <button id="cpButton" onclick="c2corg.camera.capturePhoto();">Capture Photo</button><br />
   <input id="trythumb" value="trythumb" type="checkbox" /><label for="trythumb">Resize with canvas</label><br />
   <div id="images">
-  </div>
+  </div> -->
   </body>
 </html>
