@@ -19,3 +19,5 @@ splash screen / icons
 ldpi / mdpi etc
 
 exif thumbnail
+
+analytics?

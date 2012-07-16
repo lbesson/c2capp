@@ -2,21 +2,32 @@
 <html data-ng-app="c2capp">
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <meta charset="utf-8">
     <title>Angular test app</title>
+    <link rel="stylesheet" type="text/css" media="all" href="css/main.css" />
     <script src="phonegap.js"></script>
-    <script src="assets/js/zepto-1.0rc1.js"></script>
-    <script src="assets/js/angular-1.0.1.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/controllers.js"></script>
+    <script src="lib/zepto-1.0rc1.js"></script>
+    <script src="lib/angular-1.0.1.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
   </head>
   <body>
-    <footer>Hello {{'World'}}!</footer>
+    <nav data-ng-controller="NavCtrl">
+        Hello {{'World'}}! {{$location.path() | substr:1}}
+        <ul id="navigation" data-ng-class="$location.path() | substr:1">
+            <li class="home"><a href="#/home">Home</a></li>
+            <li class="gps"><a href="#/gps">GPS</a></li>
+            <li class="images"><a href="#/images">Images</a></li>
+        </ul>
+    </nav>
     <div data-ng-view></div>
-<!-- 
-      Test image capture
-  <button id="cpButton" onclick="c2corg.camera.capturePhoto();">Capture Photo</button><br />
-  <input id="trythumb" value="trythumb" type="checkbox" /><label for="trythumb">Resize with canvas</label><br />
-  <div id="images">
-  </div> -->
+    <!-- 
+        Test image capture
+    <button id="cpButton" onclick="c2corg.camera.capturePhoto();">Capture Photo</button><br />
+    <input id="trythumb" value="trythumb" type="checkbox" /><label for="trythumb">Resize with canvas</label><br />
+    <div id="images">
+    </div>
+    -->
   </body>
 </html>

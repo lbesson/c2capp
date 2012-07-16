@@ -1,0 +1,6 @@
+/* highlight current navigation item */
+#navigation.home li.home,
+#navigation.gps li.gps,
+#navigation.images li.images {
+	color: red;
+}
