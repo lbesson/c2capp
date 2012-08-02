@@ -4,10 +4,10 @@
 	      id        = "org.camptocamp.app.outing"
 	      version   = "1.0.0">
 
-  <name>C2C: find a good name</name>
+  <name>Camptocamp.org</name>
 
   <description>
-    TODO
+    Easily add your outings to camptocamp.org from your smartphone
   </description>
 
   <author href="http://wwww.camptocamp.org" email="dev@camptocamp.org">
