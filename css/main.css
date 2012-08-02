@@ -1,6 +1,97 @@
-/* highlight current navigation item */
-#navigation.home li.home,
-#navigation.gps li.gps,
-#navigation.images li.images {
-	color: red;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#navigation {
+  border: 0;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  background-color: #ff9933;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 32px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  width: 25%;
+  z-index: 10;
+}
+.nav-item a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+#navigation.home .nav-item.home {
+  background-color: #ff8c1a;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-box-shadow: 0 1px 2px 2px #cccccc;
+  -webkit-box-shadow: 0 1px 2px 2px #cccccc;
+  box-shadow: 0 1px 2px 2px #cccccc;
+  height: 34px;
+  position: relative;
+  z-index: 11;
+}
+
+#navigation.gps .nav-item.gps {
+  background-color: #ff8c1a;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-box-shadow: 0 1px 2px 2px #cccccc;
+  -webkit-box-shadow: 0 1px 2px 2px #cccccc;
+  box-shadow: 0 1px 2px 2px #cccccc;
+  height: 34px;
+  position: relative;
+  z-index: 11;
+}
+
+#navigation.images .nav-item.images {
+  background-color: #ff8c1a;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-box-shadow: 0 1px 2px 2px #cccccc;
+  -webkit-box-shadow: 0 1px 2px 2px #cccccc;
+  box-shadow: 0 1px 2px 2px #cccccc;
+  height: 34px;
+  position: relative;
+  z-index: 11;
+}
+
+#navigation.sync .nav-item.sync {
+  background-color: #ff8c1a;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-box-shadow: 0 1px 2px 2px #cccccc;
+  -webkit-box-shadow: 0 1px 2px 2px #cccccc;
+  box-shadow: 0 1px 2px 2px #cccccc;
+  height: 34px;
+  position: relative;
+  z-index: 11;
 }

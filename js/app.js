@@ -9,5 +9,6 @@ angular.module('c2capp', ['c2capp.filters']).
   	  when('/home', { templateUrl: 'partials/home.html' }).
   	  when('/gps', { templateUrl: 'partials/gps.html' }).
   	  when('/images', { templateUrl: 'partials/images.html' }).
+          when('/sync', { templateUrl: 'partials/sync.html' }).
   	  otherwise({ redirectTo: '/home' });
   }]);

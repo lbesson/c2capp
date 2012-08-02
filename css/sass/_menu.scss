@@ -1,0 +1,51 @@
+$nav_links: home, gps, images, sync;
+$nav_radius: 2px;
+$selected_orange: darken($orange, 5%);
+$selected_shadow: 0 1px 2px 2px #ccc;
+
+#navigation {
+  border: 0;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  background-color: $orange;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 32px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  width: 100%/length($nav_links);
+  z-index: 10;
+
+  a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: white; // temp
+  }
+}
+
+// highlight current navigation item
+@each $link in $nav_links {
+  #navigation.#{$link} .nav-item.#{$link} {
+    background-color: $selected_orange;
+    -webkit-border-bottom-left-radius: $nav_radius;
+    -webkit-border-bottom-right-radius: $nav_radius;
+    -moz-border-radius-bottomleft: $nav_radius;
+    -moz-border-radius-bottomright: $nav_radius;
+    border-bottom-left-radius: $nav_radius;
+    border-bottom-right-radius: $nav_radius;
+    -moz-box-shadow: $selected_shadow;
+    -webkit-box-shadow: $selected_shadow;
+    box-shadow: $selected_shadow;
+    height: 34px;
+    position: relative;
+    z-index: 11;
+  }
+}

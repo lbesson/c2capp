@@ -14,20 +14,10 @@
   </head>
   <body>
     <nav data-ng-controller="NavCtrl">
-        Hello {{'World'}}! {{$location.path() | substr:1}}
         <ul id="navigation" data-ng-class="$location.path() | substr:1">
-            <li class="home"><a href="#/home">Home</a></li>
-            <li class="gps"><a href="#/gps">GPS</a></li>
-            <li class="images"><a href="#/images">Images</a></li>
+            <li data-ng-repeat="i in ['Home', 'GPS', 'Images', 'Sync']" class="nav-item {{i|lowercase}}"><a href="#/{{i|lowercase}}">{{i}}</a></li>
         </ul>
     </nav>
     <div data-ng-view></div>
-    <!-- 
-        Test image capture
-    <button id="cpButton" onclick="c2corg.camera.capturePhoto();">Capture Photo</button><br />
-    <input id="trythumb" value="trythumb" type="checkbox" /><label for="trythumb">Resize with canvas</label><br />
-    <div id="images">
-    </div>
-    -->
   </body>
 </html>
