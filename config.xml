@@ -22,5 +22,11 @@
   <feature name="http://api.phonegap.com/1.0/camera" />
 
   <preference name="orientation" value="portrait" />
+  <preference name="phonegap-version" value="2.0.0" />
+  <!-- iOS specific -->
+  <preference name="target-device" value="handset" />
+  <preference name="exit-on-suspend" value="false" />
+  <!-- Android specific -->
+  <preference name="android-installLocation" value="auto" />
   
 </widget>
