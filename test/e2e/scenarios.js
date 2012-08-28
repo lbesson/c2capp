@@ -18,8 +18,8 @@ describe('c2c app', function() {
       browser().navigateTo('#/home');
     });
 
-    it('should render view1 when user navigates to /home', function() {
-      expect(element('[ng-view] p:first').text()).toMatch(/Home stuff/);
+    it('should render home when user navigates to /home', function() {
+      expect(element('[data-ng-view] p:first').text()).toMatch(/Home stuff/);
     });
 
   });
@@ -30,8 +30,8 @@ describe('c2c app', function() {
       browser().navigateTo('#/gps');
     });
 
-    it('should render view1 when user navigates to /gps', function() {
-      expect(element('[ng-view] p:first').text()).toMatch(/GPS stuff/);
+    it('should render gps view when user navigates to /gps', function() {
+      expect(element('[data-ng-view] p:first').text()).toMatch(/GPS stuff/);
     });
   
   });
@@ -42,8 +42,8 @@ describe('c2c app', function() {
       browser().navigateTo('#/images');
     });
 
-    it('should render view1 when user navigates to /images', function() {
-      expect(element('[ng-view] p:first').text()).toMatch(/Images stuff/);
+    it('should render images view when user navigates to /images', function() {
+      expect(element('[data-ng-view] p:first').text()).toMatch(/Images stuff/);
     });
   
   });
@@ -54,8 +54,8 @@ describe('c2c app', function() {
       browser().navigateTo('#/sync');
     });
 
-    it('should render view1 when user navigates to /sync', function() {
-      expect(element('[ng-view] p:first').text()).toMatch(/Sync stuff/);
+    it('should render sync view when user navigates to /sync', function() {
+      expect(element('[data-ng-view] p:first').text()).toMatch(/Sync stuff/);
     });
   
   });
@@ -66,8 +66,8 @@ describe('c2c app', function() {
       browser().navigateTo('#/home');
     });
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element('[ng-view] p:first').text()).toMatch(/Home/);
+    it('should render home when user navigates to /home', function() {
+      expect(element('[data-ng-view] p:first').text()).toMatch(/Home/);
     });
   
   });
