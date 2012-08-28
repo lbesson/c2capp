@@ -8,6 +8,6 @@ angular.module('c2capp.i18n', []).
   }).
   filter('i18n', function(i18n) {
     return function(input) {
-      return i18n[input]; // TODO what if doesnt exist?
+      return i18n[input]; // TODO what if doesnt exist? + check if input not null
     }
   });
