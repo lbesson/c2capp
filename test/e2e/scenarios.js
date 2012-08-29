@@ -60,6 +60,18 @@ describe('c2c app', function() {
   
   });
 
+  describe('prefs', function() {
+    
+    beforeEach(function() {
+      browser().navigateTo('#/prefs');
+    });
+
+    it('should render prefs view when user navigates to /prefs', function() {
+      expect(element('[data-ng-view] p:first').text()).toMatch(/Prefs stuff/);
+    });
+  
+  });
+
   describe('home', function() {
     
     beforeEach(function() {
