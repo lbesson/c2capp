@@ -1,5 +1,4 @@
 <p>Prefs stuff</p>
-<p data-ng-controller="LangCtrl">
-  {{'Language: '|i18n}}<select data-ng-model="lang" data-ng-options="l for l in langs"></select>
-  {{lang}}
+<p data-ng-controller="LangPrefCtrl">
+  {{'Language:'|i18n}}<select data-ng-model="lang" data-ng-options="l.code as l.name for l in langs"></select>
 </p>
