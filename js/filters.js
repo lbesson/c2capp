@@ -1,9 +1,7 @@
 'use strict';
 
-/* Filters */
-
-/* Substr filter, works like javascript substr() */
 angular.module('c2capp.filters', []).
+  /* Substr filter, works like javascript substr() */
   filter('substr', function() {
     return function(text, start, length) {
 

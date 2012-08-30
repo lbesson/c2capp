@@ -9,7 +9,7 @@
   <body>
     <nav data-ng-controller="NavCtrl">
         <ul id="navigation" data-ng-class="$location.path()|substr:1">
-            <li data-ng-repeat="i in pages" class="nav-item {{i|lowercase}}"><a data-ng-href="#/{{i|lowercase}}">{{i|i18n}}</a></li>
+            <li data-ng-repeat="i in pages" class="nav-item {{i|lowercase}} gps_{{gps}}"><a data-ng-href="#/{{i|lowercase}}">{{i|i18n}}</a></li>
         </ul>
     </nav>
     <div data-ng-view></div>
@@ -27,7 +27,7 @@
       // localStorage should be supported by our target platforms (Android, iOS, BlackBerry)
       var lang = window.localStorage && window.localStorage.getItem('c2capp_lang') || 'fr';
       // TODO maybe rather use script.js and bootstrap when all js files are loaded? (see angular seed async) (might be anyway needed with phonegap start)
-      switch(lang) {
+      switch (lang) {
         case 'fr':
         case 'it':
         case 'de':
@@ -45,5 +45,6 @@
     </script>
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
+    <script src="js/services.js"></script>
   </body>
 </html>

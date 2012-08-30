@@ -29,6 +29,7 @@ body {
   display: block;
   text-align: center;
   width: 100%;
+  heigth: 100%;
   color: white;
 }
 
@@ -110,4 +111,14 @@ body {
   height: 34px;
   position: relative;
   z-index: 11;
+}
+
+.nav-item.gps a:after {
+  font-size: 80%;
+}
+.nav-item.gps.gps_on a:after {
+  content: "on";
+}
+.nav-item.gps.gps_off a:after {
+  content: "off";
 }
