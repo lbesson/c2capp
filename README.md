@@ -44,3 +44,4 @@ todo
  * analytics?
  * oauth??
  * travis-ci ?
+ * pour la version prod ? (pas les tests, ni jasmine, ni debug, etc...)
