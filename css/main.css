@@ -22,13 +22,14 @@ body {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  width: 25%;
+  width: 20%;
   z-index: 10;
 }
 .nav-item a {
   display: block;
   text-align: center;
   width: 100%;
+  heigth: 100%;
   color: white;
 }
 
@@ -94,4 +95,30 @@ body {
   height: 34px;
   position: relative;
   z-index: 11;
+}
+
+#navigation.prefs .nav-item.prefs {
+  background-color: #ff8c1a;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-box-shadow: 0 1px 2px 2px #cccccc;
+  -webkit-box-shadow: 0 1px 2px 2px #cccccc;
+  box-shadow: 0 1px 2px 2px #cccccc;
+  height: 34px;
+  position: relative;
+  z-index: 11;
+}
+
+.nav-item.gps a:after {
+  font-size: 80%;
+}
+.nav-item.gps.gps_on a:after {
+  content: "on";
+}
+.nav-item.gps.gps_off a:after {
+  content: "off";
 }

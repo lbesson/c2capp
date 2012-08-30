@@ -2,44 +2,49 @@
 <html data-ng-app="c2capp">
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
-    <meta charset="utf-8">
-    <title>Angular test app</title>
+    <meta charset="utf-8" />
+    <title>Camptocamp.org application</title>
     <link rel="stylesheet" type="text/css" media="all" href="css/main.css" />
+  </head>
+  <body>
+    <nav data-ng-controller="NavCtrl">
+        <ul id="navigation" data-ng-class="$location.path()|substr:1">
+            <li data-ng-repeat="i in pages" class="nav-item {{i|lowercase}} gps_{{gps}}"><a data-ng-href="#/{{i|lowercase}}">{{i|i18n}}</a></li>
+        </ul>
+    </nav>
+    <div data-ng-view></div>
+
     <script src="phonegap.js"></script>
     <script src="lib/zepto-1.0rc1.js"></script>
     <script src="lib/angular-1.0.1.js"></script>
     <script src="js/app.js"></script>
     <script>
-      // load angular specific localization file + our translation files
-      // TODO our own translation + pref override?
-      // TODO test if navigator.language is ok!!
-      // maybe rather use script.js and bootstrap when all js files are loaded? (see angular seed async) (might be anyway needed with phonegap start)
-      switch(navigator.language) {
+    (function () {
+      // load localization files
+      // Note that we cannot rely on navigator.language of the webview,
+      // which is always 'en', at least with Android/PhoneGap
+      // We thus default to 'fr', and use localStorage to store the prefered value
+      // localStorage should be supported by our target platforms (Android, iOS, BlackBerry)
+      var lang = window.localStorage && window.localStorage.getItem('c2capp_lang') || 'fr';
+      // TODO maybe rather use script.js and bootstrap when all js files are loaded? (see angular seed async) (might be anyway needed with phonegap start)
+      switch (lang) {
         case 'fr':
         case 'it':
         case 'de':
         case 'es':
         case 'ca':
         case 'eu':
-          document.write('<script src="lib/angular-locale_'+navigator.language+'.js"><\/script>');
-          document.write('<script src="js/i18n_'+navigator.language+'.js"><\/script>');
+          document.write('<script src="lib/angular-locale_'+lang+'.js"><\/script>');
+          document.write('<script src="js/i18n_'+lang+'.js"><\/script>');
           break;
         default:
-          // use 'en' ($locale/en already included in angular-1.0.1.js)
           document.write('<script src="js/i18n_en.js"><\/script>');
           break;
       }
+    })();
     </script>
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
-  </head>
-  <body>
-    <nav data-ng-controller="NavCtrl">
-        <ul id="navigation" data-ng-class="$location.path() | substr:1">
-            <li data-ng-repeat="i in ['Home', 'GPS', 'Images', 'Sync']" class="nav-item {{i|lowercase}}"><a data-ng-href="#/{{i|lowercase}}">{{i}}</a></li>
-        </ul>
-    </nav>
-    {{'plop'|i18n}}
-    <div data-ng-view></div>
+    <script src="js/services.js"></script>
   </body>
 </html>

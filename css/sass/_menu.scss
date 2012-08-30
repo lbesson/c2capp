@@ -1,4 +1,4 @@
-$nav_links: home, gps, images, sync;
+$nav_links: home, gps, images, sync, prefs;
 $nav_radius: 2px;
 $selected_orange: darken($orange, 5%);
 $selected_shadow: 0 1px 2px 2px #ccc;
@@ -27,6 +27,7 @@ $selected_shadow: 0 1px 2px 2px #ccc;
     display: block;
     text-align: center;
     width: 100%;
+    heigth: 100%;
     color: white; // temp
   }
 }
@@ -47,5 +48,18 @@ $selected_shadow: 0 1px 2px 2px #ccc;
     height: 34px;
     position: relative;
     z-index: 11;
+  }
+}
+
+// gps tab should display current state
+.nav-item.gps {
+  a:after {
+    font-size: 80%;
+  }
+  &.gps_on a:after {
+    content: "on";
+  }
+  &.gps_off a:after {
+    content: "off";
   }
 }
