@@ -1,0 +1,6 @@
+// ngCloak directive is used to prevent the angular html template
+// from being briefly displayed uncompiled by the browser while
+// application is still loading
+[data-ng-cloak] {
+  display: none;
+}

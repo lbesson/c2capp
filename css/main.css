@@ -5,11 +5,16 @@ body {
   font-size: 14px;
 }
 
+[data-ng-cloak] {
+  display: none;
+}
+
 #navigation {
   border: 0;
   height: 40px;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .nav-item {
