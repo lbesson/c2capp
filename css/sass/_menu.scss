@@ -8,6 +8,8 @@ $selected_shadow: 0 1px 2px 2px #ccc;
   height: 40px;
   margin: 0;
   padding: 0;
+  // we want to avoid highlight squares to appear
+  // when we tap on menu items
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
@@ -62,5 +64,11 @@ $selected_shadow: 0 1px 2px 2px #ccc;
   }
   &.gps_off a:after {
     content: "off";
+  }
+  &.gps_ko a:after {
+    content: "ko";
+  }
+  &.gps_no a:after {
+    content: "no";
   }
 }

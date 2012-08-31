@@ -1,6 +1,9 @@
 <p>GPS stuff</p>
-<p data-ng-controller="GpsCtrl">
-  Test geoloc
+<div data-ng-controller="GpsCtrl">
+  Test geoloc {{positions.length}} {{geolocation.status()}}
   <button data-ng-click="geolocation.start()">start</button>
   <button data-ng-click="geolocation.stop()">stop</button>
-</p>
+  <ul>
+  	<li data-ng-repeat="position in positions">{{position.coords.latitude}} {{position.coords.longitude}}</li>
+  </ul>
+</div>

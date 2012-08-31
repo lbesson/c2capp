@@ -56,6 +56,6 @@ todo
  * ldpi / mdpi etc
  * exif thumbnail
  * oauth??
- * travis-ci ?
+ * travis-ci https://gist.github.com/3345190 ?
  * pour la version prod ? (pas les tests, ni jasmine, ni debug, etc...)
  * normalize.css

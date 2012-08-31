@@ -8,10 +8,7 @@ function NavCtrl($scope, $location, geolocation) {
   $scope.pages = ['Home', 'GPS', 'Images', 'Sync', 'Prefs'];
 
   // we also want to be able to display gps state
-  $scope.gps = 'off';
-  $scope.$on('GPS', function(evt, status) {
-    $scope.gps = status;
-  });
+  $scope.gps = geolocation.status;
 }
 
 /* retrieve / update the interface language from / to localStorage
@@ -35,6 +32,7 @@ function LangPrefCtrl($scope, $filter) {
       // We need to reload the page, so that correct i18n javascripts
       // can be loaded from index.html (or language will change after restart)
       // TODO improve this!
+      // maybe check if we can async laod js and override somehow?
       if (confirm($filter('i18n')('lang_confirm'))) {
         window.location.reload();
       }
@@ -44,4 +42,12 @@ function LangPrefCtrl($scope, $filter) {
 
 function GpsCtrl($scope, geolocation) {
   $scope.geolocation = geolocation;
+  $scope.positions = geolocation.positions;
+}
+
+function SyncCtrl($scope) {
+  // information of whether we have a connection
+  var networkState = navigator.network || navigator.network.connection.type;
+  alert(networkState);
+  $scope.connection = (networkState && networkState !== navigator.network.connection.UNKNOWN);
 }

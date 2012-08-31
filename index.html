@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" media="all" href="css/main.css" />
   </head>
   <body>
-    <nav data-ng-controller="NavCtrl">
+    <nav data-ng-cloak data-ng-controller="NavCtrl">
         <ul id="navigation" data-ng-class="$location.path()|substr:1">
-            <li data-ng-repeat="i in pages" class="nav-item {{i|lowercase}} gps_{{gps}}"><a data-ng-href="#/{{i|lowercase}}">{{i|i18n}}</a></li>
+            <li data-ng-repeat="i in pages" class="nav-item {{i|lowercase}} gps_{{gps()}}"><a data-ng-href="#/{{i|lowercase}}">{{i|i18n}}</a></li>
         </ul>
     </nav>
     <div data-ng-view></div>

@@ -14,7 +14,7 @@
     Camptocamp Association
   </author>
 
-  <icon src="assets/img/icon.png" gap:role="default" />
+  <icon src="img/icon.png" gap:role="default" />
 
   <feature name="http://api.phonegap.com/1.0/geolocation" />
   <feature name="http://api.phonegap.com/1.0/network" />

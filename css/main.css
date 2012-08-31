@@ -127,3 +127,9 @@ body {
 .nav-item.gps.gps_off a:after {
   content: "off";
 }
+.nav-item.gps.gps_ko a:after {
+  content: "ko";
+}
+.nav-item.gps.gps_no a:after {
+  content: "no";
+}
