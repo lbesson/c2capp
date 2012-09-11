@@ -47,7 +47,17 @@ function GpsCtrl($scope, geolocation) {
 
 function SyncCtrl($scope) {
   // information of whether we have a connection
-  var networkState = navigator.network || navigator.network.connection.type;
-  alert(networkState);
-  $scope.connection = (networkState && networkState !== navigator.network.connection.UNKNOWN);
+  var networkState = navigator.network && navigator.network.connection.type;
+  $scope.connection = (networkState &&
+                       networkState !== navigator.network.connection.UNKNOWN &&
+                       networkState !== "unknown" &&
+                       networkState !== "none");
+}
+
+function ImgCtrl($scope, camera) {
+  $scope.images = camera.images;
+
+  $scope.capturePhoto = function() {
+    camera.capture();
+  };
 }

@@ -1,8 +1,45 @@
 'use strict';
 
 angular.module('c2capp.services', []).
+  // TODO test and co
+  factory('camera', function() {
+    var images = [];
+
+    function onCaptureFail(message) {
+      alert('Image capture failed: ' + message);
+    }
+
+    function onCaptureSuccess(file) {
+      //var width, height;
+
+      // add to the images list
+      images.push({
+        title: '',
+        src: file,
+        type: 0,
+        categories: []
+      });
+    }
+
+    return {
+      capture: function() {
+        if (!!navigator.camera && !!navigator.camera.DestinationType) { // phonegap-ripple
+          navigator.camera.getPicture(onCaptureSuccess, onCaptureFail, {
+            quality: 80,
+            sourceType: navigator.camera.DestinationType.FILE_URI,
+            destinationType: navigator.camera.PictureSourceType.CAMERA
+          });
+        } else {
+          onCaptureSuccess('img/mouchillon.jpg');
+        }
+      },
+      images: images
+    }
+  }).
   // TODO to be tested 
   // look for $q (see asynchronous things) http://jsfiddle.net/4BVVQ/2/ ??
+  // TODO check if implem with this.truc works better and also see
+  // http://plunker.no.de/edit/j7cHwO
   factory('geolocation', function($rootScope) {
     var status = 'off',
         watchId = null,
@@ -20,7 +57,7 @@ angular.module('c2capp.services', []).
         // TODO stop watching if watchId not null?
         watchId = navigator.geolocation.watchPosition(
           function(position) {
-            $rootScope.$apply(function() {
+            $rootScope.$apply(function() { // rootScope necessary?
               positions.push(position);
             });
           },
@@ -63,6 +100,7 @@ angular.module('c2capp.services', []).
       status: function() {
         return status;
       },
+      status2: status,
       positions: positions
     }
   });

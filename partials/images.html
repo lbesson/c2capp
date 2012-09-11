@@ -1,8 +1,10 @@
 <p>Images stuff</p>
-    <!-- 
-        Test image capture
-    <button id="cpButton" onclick="c2corg.camera.capturePhoto();">Capture Photo</button><br />
-    <input id="trythumb" value="trythumb" type="checkbox" /><label for="trythumb">Resize with canvas</label><br />
-    <div id="images">
-    </div>
-    -->
+<div data-ng-controller="ImgCtrl">
+  Test image capture <button id="cpButton" data-ng-click="capturePhoto()">Capture Photo</button>
+  {{images.length}} images
+  <div>
+  	<div data-ng-repeat="image in images">
+  		<img style="width:100px; height:100px" title="{{image.title}}" data-ng-src="{{image.src}}" />
+  	</div>
+  </div>
+</div>
