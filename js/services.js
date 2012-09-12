@@ -9,16 +9,17 @@ angular.module('c2capp.services', []).
       alert('Image capture failed: ' + message);
     }
 
-    function onCaptureSuccess(file) {
+    function onCaptureSuccess(imageURI) {
+      console.log(imageURI);
       //var width, height;
 
       // add to the images list
-      images.push({
-        title: '',
-        src: file,
-        type: 0,
-        categories: []
-      });
+      // images.push({
+      //   title: '',
+      //   src: imageURI,
+      //   type: 0,
+      //   categories: []
+      // });
     }
 
     return {
