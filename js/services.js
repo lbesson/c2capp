@@ -25,6 +25,7 @@ angular.module('c2capp.services', []).
     return {
       capture: function() {
         if (!!navigator.camera && !!navigator.camera.DestinationType) { // phonegap-ripple
+          console.log(navigator.camera.DestinationType.FILE_URI);
           navigator.camera.getPicture(onCaptureSuccess, onCaptureFail, {
             quality: 80,
             sourceType: navigator.camera.DestinationType.FILE_URI,

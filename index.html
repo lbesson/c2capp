@@ -46,5 +46,22 @@
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/services.js"></script>
+      <script>
+  function mytest() {
+    navigator.camera.getPicture(
+      function(file) {
+        console.log(file);
+      },
+      function(message) {
+        alert(message)
+      },
+      {
+        quality: 80,
+        sourceType: navigator.camera.DestinationType.FILE_URI,
+        destinationType: navigator.camera.PictureSourceType.CAMERA
+      }
+    );
+  }
+  </script>
   </body>
 </html>
