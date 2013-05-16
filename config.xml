@@ -26,7 +26,7 @@
   <feature name="http://api.phonegap.com/1.0/camera" />
 
   <preference name="orientation" value="portrait" />
-  <preference name="phonegap-version" value="2.3.0" />
+  <preference name="phonegap-version" value="2.5.0" />
 
   <!-- iOS specific -->
   <preference name="target-device" value="handset" />
